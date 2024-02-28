@@ -24,6 +24,8 @@ public class TemplateRepoTests {
         IntStream.rangeClosed(1, 10).forEach( i-> {
             TemplateDao templatedao = TemplateDao.builder()
                     .title("Sample........" + i)
+                    .description("Template Description......" + i)
+
                     .gcs_path("http://gcs/image" + i)
                     .file_type("pdf")
                     .build();
@@ -31,4 +33,8 @@ public class TemplateRepoTests {
             templateRepository.save(templatedao);
         });
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7444c214b8bdd617e3dd5b7ee320a0726aafe72d
  }

@@ -1,13 +1,12 @@
 package com.example.javateam.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Entity
 @Table(
-        name = "category"
+        name = "reply"
 )
 public class ReplyDao {
     @Id
@@ -17,6 +16,9 @@ public class ReplyDao {
     private int grade;
     private String text;
 
-
+    // 양방향 매핑
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserDao user;
 
 }
