@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -19,22 +21,31 @@ public class TemplateRepoTests {
 //        // 프록시 객체 생성 및 클래스 이름 출력
 //    }
 
+//    @Test
+//    public void testInsertDummies() {
+//        IntStream.rangeClosed(1, 10).forEach( i-> {
+//            TemplateDao templatedao = TemplateDao.builder()
+//                    .title("Sample........" + i)
+//                    .description("Template Description......" + i)
+//                    .gcs_path("http://gcs/image" + i)
+//                    .file_type("pdf")
+//                    .build();
+//
+//            templateRepository.save(templatedao);
+//        });
+//    }
+
+    // 특정 템플릿의 모든 평균 별점/댓글 개수 조회
     @Test
-    public void testInsertDummies() {
-        IntStream.rangeClosed(1, 10).forEach( i-> {
-            TemplateDao templatedao = TemplateDao.builder()
-                    .title("Sample........" + i)
-                    .description("Template Description......" + i)
+    public void testGetTemplateWithAll() {
 
-                    .gcs_path("http://gcs/image" + i)
-                    .file_type("pdf")
-                    .build();
+        List<Object[]> result = templateRepository.getTemplateWithAll(4L);
 
-            templateRepository.save(templatedao);
-        });
+        System.out.println(result);
+
+        for(Object[] arr : result) {
+            System.out.println(Arrays.toString(arr));
+        }
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 7444c214b8bdd617e3dd5b7ee320a0726aafe72d
  }

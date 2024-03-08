@@ -22,7 +22,6 @@ public class TemplateDao extends BaseEntity{
     @Column(length = 50, nullable = false)
     private String title; // 템플릿 제목
 
-
     @Column(length = 100, nullable = false)
     private String gcs_path;
 
@@ -40,10 +39,10 @@ public class TemplateDao extends BaseEntity{
     private LocalDateTime upload_date;
 
 
-    // ManytoOne 연관관계 제정
-
-
-
+    // ManyToOne 연관관계 설정
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserDao user;
 
 
 
