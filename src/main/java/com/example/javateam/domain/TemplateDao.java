@@ -2,8 +2,8 @@ package com.example.javateam.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDateTime;
+
 
 
 @Entity
@@ -34,13 +34,15 @@ public class TemplateDao extends BaseEntity{
     @Column(length = 50)
     private String source;
 
+
     @Column(name="upload_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime upload_date;
 
-    // ManytoOne 연관관계 제정
 
-
-
+    // ManyToOne 연관관계 설정
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserDao user;
 
 
 

@@ -1,4 +1,4 @@
-package com.example.javateam.service;
+package com.example.javateam.service.template;
 
 import com.example.javateam.domain.TemplateDao;
 import com.example.javateam.dto.TemplateDto;
